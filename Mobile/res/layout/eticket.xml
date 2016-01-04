@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout 
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_height="fill_parent" 
+   android:layout_width="fill_parent"
+   android:layout_margin="5dp" 
+   android:id="@+id/tab_ticket" 
+   android:background="#000044"
+> 
+	<TableRow>
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="Date of Invalidation:"
+	    />
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/txt_invalidation" 
+	    />
+	</TableRow> 
+	
+	<TableRow>
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="Date of Expiration:"
+	    />
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/txt_expiration" 
+	    />
+	</TableRow>       
+    
+</TableLayout>

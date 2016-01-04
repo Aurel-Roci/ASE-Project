@@ -1,0 +1,42 @@
+<project name="Shared" default="dist" basedir=".">
+
+	<property name="src" location="src"/>
+  	<property name="build" location="bin"/>
+  	<property name="dist"  location="dist"/>
+	
+  	<property name="mobilebus" value="mobilebus"/>
+  	<property name="mobileweb" value="mobileweb"/>
+  	<property name="busweb" value="busweb"/>
+ 	<property name="mobilebusweb" value="mobilebusweb"/>	
+	
+	<target name="dist_mobilebus" description="generate distribution of Mobile/Bus shared classes">
+		<mkdir dir="${dist}"/>
+		<jar jarfile="${dist}/${mobilebus}.jar" basedir="${build}" includes="**/${mobilebus}/**/*.class" excludes="**/*Test*.class"/>
+	</target>
+
+	<target name="dist_mobileweb" description="generate distribution of Mobile/Web shared classes">
+		<mkdir dir="${dist}"/>	
+		<jar jarfile="${dist}/${mobileweb}.jar" basedir="${build}" includes="**/${mobileweb}/**/*.class" excludes="**/*Test*.class"/>
+	</target>
+	
+	<target name="dist_busweb" description="generate distribution of Web/Bus shared classes">
+		<mkdir dir="${dist}"/>	
+		<jar jarfile="${dist}/${busweb}.jar" basedir="${build}" includes="**/${busweb}/**/*.class" excludes="**/*Test*.class"/>
+	</target>
+	
+	<target name="dist_mobilebusweb" description="generate distribution of Mobile/Bus/Web shared classes">
+		<mkdir dir="${dist}"/>	
+		<jar jarfile="${dist}/${mobilebusweb}.jar" basedir="${build}" includes="**/${mobilebusweb}/**/*.class" excludes="**/*Test*.class"/>
+	</target>
+	
+	<target name="clean">
+		<delete file="${dist}/${mobilebusweb}.jar"/>
+		<delete file="${dist}/${busweb}.jar"/>
+		<delete file="${dist}/${mobileweb}.jar"/>
+		<delete file="${dist}/${mobilebus}.jar"/>
+	</target>
+
+	<target name="dist" depends="clean,dist_mobilebus,dist_mobileweb,dist_busweb,dist_mobilebusweb">
+	</target>
+ 
+</project>

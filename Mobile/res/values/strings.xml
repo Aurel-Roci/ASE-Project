@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Transport4You</string>
+<string name="username">username</string>
+<string name="password">password</string>
+<string name="login">login</string>
+<string name="settings">Change Settings</string>
+<string name="etickets">Show stored eTickets</string>
+<string name="accountdetails">Show Account Details</string>
+<string name="menu">Select Menu</string>
+<string name="customerinformation">Show Customer Information</string>
+<string name="startbusscan">Start Bus Scan</string>
+<string name="synchronize">Synchronize</string>
+</resources>

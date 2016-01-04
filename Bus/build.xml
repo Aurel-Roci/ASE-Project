@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="Bus">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <property name="build" location="./build"/>
+    <property name="dist" location="./dist"/>
+    <property name="lib" location="./lib"/>
+    <property name="src" location="./src"/>
+              	
+              	
+    <path id="src.classpath">
+        <pathelement location="."/>
+        <pathelement location="${lib}/bcprov-jdk16-145.jar"/>
+        <pathelement location="${lib}/bluecove-2.1.1-SNAPSHOT.jar"/>
+        <pathelement location="${lib}/bluecove-gpl-2.1.1-SNAPSHOT.jar"/>
+        <pathelement location="${lib}/bluecove-emu-2.1.1-SNAPSHOT.jar"/>
+        <pathelement location="${lib}/busweb.jar"/>
+        <pathelement location="${lib}/commons-collections-3.2.1.jar"/>
+        <pathelement location="${lib}/commons-configuration-1.6.jar"/>
+        <pathelement location="${lib}/commons-lang-2.5.jar"/>
+        <pathelement location="${lib}/commons-logging-1.1.1.jar"/>
+        <pathelement location="${lib}/eclipselink.jar"/>
+        <pathelement location="${lib}/javax.persistence_2.0.1.v201006031150.jar"/>
+        <pathelement location="${lib}/log4j-1.2.16.jar"/>
+        <pathelement location="${lib}/mobilebus.jar"/>
+        <pathelement location="${lib}/mobilebusweb.jar"/>
+        <pathelement location="${lib}/mysql-connector-java-5.1.14-bin.jar"/>
+        <pathelement location="META-INF/persistence.xml"/>
+    </path>
+
+    <target name="init">
+    	<mkdir dir="${build}"/>
+    	<mkdir dir="${dist}"/>
+    </target>
+
+    <target name="clean">
+    	<delete dir="${build}"/>
+    	<delete dir="${dist}"/>
+    </target>
+
+    <target depends="clean" name="cleanall"/>
+              	
+    <target depends="init" name="compile">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="${build}" includeantruntime="false" source="${source}" target="${target}">
+            <src path="${src}"/>
+            <classpath refid="src.classpath"/>
+        </javac>
+    </target>
+
+
+    <target name="dist" depends="compile" description="generate the distribution">
+      <mkdir dir="${dist}"/>
+
+	  <manifestclasspath property="jar.classpath" jarfile="${dist}/score-bus.jar">
+	       <classpath refid="src.classpath" />
+      </manifestclasspath>
+	  
+      <jar jarfile="${dist}/score-bus.jar">
+	  	<fileset dir="${build}"/>
+	  	<fileset dir=".">
+			<include name="META-INF/persistence.xml"/>
+		</fileset>
+        <manifest>
+          <attribute name="Main-Class" value="de.tum.score.transport4you.bus.application.applicationcontroller.impl.System"/>
+		   <attribute name="Class-Path" value="${jar.classpath}" />
+        </manifest>
+     </jar>
+	 <echo message="You can now run score-bus with:"/>
+	 <echo message="java -cp 'dist/score-bus.jar:lib/*' de.tum.score.transport4you.bus.application.applicationcontroller.impl.System"/>
+    </target>
+
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="run" depends="compile">
+        <java classname="de.tum.score.transport4you.bus.application.applicationcontroller.impl.System" failonerror="true" fork="yes">
+			<classpath>
+				<pathelement path="${build}"/>
+				<fileset dir="${lib}">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>
+			<arg value="res/system.conf"/>
+			<arg value="res/log4j.conf"/>
+        </java>
+    </target>
+</project>

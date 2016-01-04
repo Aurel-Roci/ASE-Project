@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+	    android:id="@+id/android:empty"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:text="No eTickets available"
+    />
+    <TextView android:id="@+id/txt_available_etickettypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Available ETicket Types:"
+        android:textSize="20px"
+        android:paddingLeft="5dp"
+    />
+    <ListView android:id="@+id/list_available_etickettypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stackFromBottom="false"
+        android:layout_weight="2"
+    />
+</LinearLayout>

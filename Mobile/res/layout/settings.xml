@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent" 
+    android:layout_width="fill_parent"
+    android:background="#000044">
+    
+    <TableRow> 
+        <TextView 
+            android:text="Automatic Scanning:"
+            android:width ="300px"
+        />
+        <CheckBox android:id="@+id/chk_automaticscanning"
+            android:width ="60px"
+        />  
+    </TableRow> 
+    
+    <TableRow> 
+        <TextView 
+            android:text="Automatic Synchronization:"
+            android:width ="300px"
+        />
+        <CheckBox android:id="@+id/chk_automaticsynchronization"
+            android:width ="60px"
+        />  
+    </TableRow>
+    
+    <TableRow> 
+        <TextView 
+            android:text="Automatic SMS Notification:"
+            android:width ="300px"
+        />
+        <CheckBox android:id="@+id/chk_automaticsmsnotification"
+            android:width ="60px"
+        />  
+    </TableRow>
+
+</TableLayout>
