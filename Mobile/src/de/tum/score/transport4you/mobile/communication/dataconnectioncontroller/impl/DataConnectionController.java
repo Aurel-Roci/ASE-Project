@@ -17,7 +17,7 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 
-import org.bouncycastle.util.encoders.Base64;
+import org.spongycastle.util.encoders.Base64;
 import org.restlet.resource.ClientResource;
 import org.restlet.resource.ResourceException;
 import org.w3c.dom.Document;
@@ -35,6 +35,7 @@ import de.tum.score.transport4you.shared.mobileweb.impl.message.MobileSettings;
 public class DataConnectionController implements IData {
 
 	private static final String baseURL = "http://score-1042.appspot.com/rest/";
+	//private static final String baseURL = "http://131.159.194.232:8080/rest/"; //replace  192.168.0.12
 	private IMainApplication mainApplication;
 	private Context context;
 	
@@ -45,7 +46,6 @@ public class DataConnectionController implements IData {
 	
 	@Override
 	public boolean checkAuthentication(Context context, String username, String password) throws RESTException {
-
 	    try {
 	    	String md5 = computeMD5(password);
 	    	
@@ -56,7 +56,7 @@ public class DataConnectionController implements IData {
 			}
 			
 	    	String output = new ClientResource(baseURL + "user/" + username + "/" + md5).get().getText();  
-	    	
+
 	    	if(output.toLowerCase().contains("wrong password"))	{
 	    		return false;	    		
 	    	} 

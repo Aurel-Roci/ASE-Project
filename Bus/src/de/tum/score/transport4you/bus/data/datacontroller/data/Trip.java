@@ -37,6 +37,9 @@ public class Trip extends AbstractPersistenceObject{
 	
 	private String customerId;
 	
+	//added new attribute, to get rid of a PersistenceException
+	private Customer customer; 
+	
 	@OneToOne(fetch=FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH})
 	private ETicket customerTicket;
 	

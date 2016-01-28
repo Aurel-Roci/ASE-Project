@@ -4,9 +4,14 @@
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/Shared"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.restlet.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/android-support-v13.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/bcprov-jdk16-145.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/core-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jaxb-api-2.2.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/gson-2.3.1.jar"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry exported="true" kind="lib" path="lib/core-1.54.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/pkix-1.54.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/prov-1.54.0.0.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>

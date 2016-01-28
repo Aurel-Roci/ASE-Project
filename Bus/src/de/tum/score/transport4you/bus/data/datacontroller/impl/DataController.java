@@ -120,7 +120,8 @@ public class DataController implements ISettingsDataController{
 				fileReader = new FileReader(propertiesConfiguration.getString(PropertiesConfigurationEntries.SECURITY_KEYAGREEMENT_KEYPATH));
 				PEMReader pemReader = new PEMReader(fileReader);
 				KeyPair keyPair = (KeyPair) pemReader.readObject();
-				keyConfiguration.setKeyAgreementPrivateKey(keyPair.getPrivate());
+				if (keyPair != null)
+					keyConfiguration.setKeyAgreementPrivateKey(keyPair.getPrivate());
 				pemReader.close();
 				fileReader.close();
 				
@@ -128,7 +129,8 @@ public class DataController implements ISettingsDataController{
 				fileReader = new FileReader(propertiesConfiguration.getString(PropertiesConfigurationEntries.SECURITY_BLOB_KEYPATH_PRIVATE));
 				pemReader = new PEMReader(fileReader);
 				keyPair = (KeyPair) pemReader.readObject();
-				keyConfiguration.setBlobPrivateKey(keyPair.getPrivate());
+				if (keyPair != null)
+					keyConfiguration.setBlobPrivateKey(keyPair.getPrivate());
 				pemReader.close();
 				fileReader.close();
 				
@@ -137,7 +139,8 @@ public class DataController implements ISettingsDataController{
 		        pemReader = new PEMReader(fileReader);
 		        X509Certificate cert = (X509Certificate) pemReader.readObject();
 		        PublicKey publicKey = (PublicKey) cert.getPublicKey();
-		        keyConfiguration.setBlobPublicKey(publicKey);
+		    	if (publicKey != null)
+		    		keyConfiguration.setBlobPublicKey(publicKey);
 		    	pemReader.close();
 				fileReader.close();
 				
@@ -151,6 +154,7 @@ public class DataController implements ISettingsDataController{
 				throw new ConfigurationLoadingException("Error loading the Key Configuration: "+e.getMessage());
 			} catch (Exception e) {
 				logger.error("Error loading the Key Configuration: "+e.getMessage());
+				e.printStackTrace();
 				throw new RuntimeException(e.getMessage());
 			}
 		} else {

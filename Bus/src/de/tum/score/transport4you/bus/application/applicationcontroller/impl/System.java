@@ -15,6 +15,7 @@ import de.tum.score.transport4you.bus.application.applicationcontroller.ISystem;
 import de.tum.score.transport4you.bus.communication.connectionmanager.ConnectionManagerInterfaceCoordinator;
 import de.tum.score.transport4you.bus.data.datacontroller.DataControllerInterfaceCoordinator;
 import de.tum.score.transport4you.bus.data.datacontroller.error.DataControllerInitializingException;
+import de.tum.score.transport4you.bus.webcam.qrcode.QRCodeScanner;
 
 /**
  * This class is the startup class of the Bus System.
@@ -89,7 +90,7 @@ public class System implements ISystem{
 		ApplicationControllerInterfaceCoordinator.getStartup().init();
 		logger.info("Application Controller Component initialized");
 		
-		
+		new QRCodeScanner();
 	}
 
 	@Override

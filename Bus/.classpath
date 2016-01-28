@@ -15,5 +15,11 @@
 	<classpathentry exported="true" kind="lib" path="lib/bluecove-2.1.1-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/bluecove-emu-2.1.1-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/bluecove-gpl-2.1.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/core-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/webcam-capture-0.3.10.jar"/>
+	<classpathentry kind="lib" path="lib/javase-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/bridj-0.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aurel/Desktop/ASE-Project-spongyCastleFix/ASE-Project-spongyCastleFix/Bus/lib/slf4j-nop-1.7.14.jar"/>
 	<classpathentry kind="output" path="bin/"/>
 </classpath>

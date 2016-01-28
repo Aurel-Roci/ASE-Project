@@ -100,7 +100,7 @@ public class ApplicationController extends Thread implements IMainApplication, I
 		Log.i("T4Y", "Initializing ApplicationController");
 		
 		//Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
-		Security.insertProviderAt(new org.bouncycastle.jce.provider.BouncyCastleProvider(), 1);
+		Security.insertProviderAt(new org.spongycastle.jce.provider.BouncyCastleProvider(), 1);
 		
 		settingsDataController = new DataController(context,this);
 		synchronizationManager = new SynchronizationManager(context,this);
@@ -125,7 +125,7 @@ public class ApplicationController extends Thread implements IMainApplication, I
 					
 					newSettings.setUsername("");
 					newSettings.setPassword("");
-					newSettings.setBusSSID("BUS");
+					newSettings.setBusSSID("BUS"); //BUS
 					newSettings.setBusBTName("BUS");
 					newSettings.setRememberLogin(false);
 					newSettings.setAllowAutoScan(false);

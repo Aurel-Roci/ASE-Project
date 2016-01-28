@@ -115,4 +115,16 @@ public class ETicket extends AbstractPersistenceObject {
 		return this.id;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "ETicket id: " + id + "\n" +
+				"Invalidated: " + invalidated + 
+				"CustomerId: " + customerId +
+				"ValidTime: " + validTime +
+				"ValidUntil: " + validUntil;
+	}
+	
+    
+
 }

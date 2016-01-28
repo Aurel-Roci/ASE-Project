@@ -3,12 +3,15 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 	<persistence-unit name="T4Y_BUS" transaction-type="RESOURCE_LOCAL">
-		<class>de.tukl.score.transport4you.bus.data.datacontroller.data.ETicketType</class>
-		<class>de.tukl.score.transport4you.bus.data.datacontroller.data.ETicket</class>
-		<class>de.tukl.score.transport4you.bus.data.datacontroller.data.PaymentTransaction</class>
-		<class>de.tukl.score.transport4you.bus.data.datacontroller.data.PrePayTransaction</class>
-		<class>de.tukl.score.transport4you.bus.data.datacontroller.data.PostPayTransaction</class>
-		<class>de.tukl.score.transport4you.bus.data.datacontroller.data.Trip</class>
+	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+	<exclude-unlisted-classes>false</exclude-unlisted-classes> 
+	
+		<class>de.tum.score.transport4you.shared.mobilebusweb.data.impl.ETicket</class>
+		<class>de.tum.score.transport4you.shared.mobilebusweb.data.impl.ETicketType</class>
+		<class>de.tum.score.transport4you.bus.data.datacontroller.data.PaymentTransaction</class>
+		<class>de.tum.score.transport4you.bus.data.datacontroller.data.PrePayTransaction</class>
+		<class>de.tum.score.transport4you.bus.data.datacontroller.data.PostPayTransaction</class>
+		<class>de.tum.score.transport4you.bus.data.datacontroller.data.Trip</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url"
@@ -16,8 +19,12 @@
 			<property name="javax.persistence.jdbc.user" value="t4y" />
 			<property name="javax.persistence.jdbc.password" value="t4y" />
 			<!-- EclipseLink should create the database schema automatically -->
+			<!-- <property name="eclipselink.ddl-generation.database.action" value="create" /> -->
 			<property name="eclipselink.ddl-generation" value="create-tables" />
-			<property name="eclipselink.ddl-generation.output-mode"	value="database" />
+			<property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc"/>
+			<property name="eclipselink.ddl-generation.output-mode"	value="both" />
+			<property name="eclipselink.logging.level" value="FINEST" />
 		</properties>
 	</persistence-unit>
 </persistence>

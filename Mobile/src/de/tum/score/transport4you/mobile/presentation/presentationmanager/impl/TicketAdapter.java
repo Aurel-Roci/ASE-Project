@@ -7,9 +7,11 @@ import de.tum.score.transport4you.mobile.R;
 import de.tum.score.transport4you.shared.mobilebusweb.data.impl.ETicket;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -25,7 +27,7 @@ public class TicketAdapter extends ArrayAdapter<ETicket> {
 	@Override
     public View getView(int position, View convertView, ViewGroup parent) {
        // Get the data item for this position
-		ETicket ticket = getItem(position);    
+	   ETicket ticket = getItem(position);    
 		
        // Check if an existing view is being reused, otherwise inflate the view
        if (convertView == null) {

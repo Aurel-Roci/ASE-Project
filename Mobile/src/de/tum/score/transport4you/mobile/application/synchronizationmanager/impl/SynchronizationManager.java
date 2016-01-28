@@ -3,6 +3,8 @@
  */
 package de.tum.score.transport4you.mobile.application.synchronizationmanager.impl;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -41,6 +43,7 @@ public class SynchronizationManager implements ISynchronization, ICommunicationL
 	 * R.raw.testblob_purchase_success ; R.raw.testblob_purchase_fail ; R.raw.testblob_valid_eticket
 	 */
 	private final int TEST_ETICKET = R.raw.testblob_valid_eticket;
+	private final String BLOB_FILENAME = "blob.t4y";
 	
 	public SynchronizationManager(Context context, IMainApplication mainApp) {
 		this.mainApplication = mainApp;
@@ -120,7 +123,7 @@ public class SynchronizationManager implements ISynchronization, ICommunicationL
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		}
+		} 
 		
 		if(!synchronizationDataController.existBlob()) {
 			Log.i("T4Y", "No eTicket blob found");

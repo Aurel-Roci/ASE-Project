@@ -1,5 +1,6 @@
 package de.tum.score.transport4you.shared.mobilebusweb.data.impl;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,13 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.google.gson.Gson;
+
 /**
  * Represents an ETicket
  * @author hoerning
  *
  */
 @Entity
-public class ETicket extends AbstractPersistenceObject {
+public class ETicket extends AbstractPersistenceObject implements Serializable {
 	
 	/**
 	 * 
@@ -115,4 +118,19 @@ public class ETicket extends AbstractPersistenceObject {
 		return this.id;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "ETicket id: " + id + "\n" +
+				"Customer id: " + customerId + "\n" +
+				"Valid until: " + validUntil;
+	}
+	
+	public String serialize(){
+	    return new Gson().toJson(this);
+	}
+	
+	public static ETicket deserialize(String jsonString){
+	    return new Gson().fromJson(jsonString, ETicket.class);
+	}
 }
